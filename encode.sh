@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+
 START=$(find JPG -name '*.JPG' -print| sed 's|^JPG/DSC_||g' | sed  's|\.JPG$||g' | sort -n | head -n 1)
 
 
@@ -8,7 +9,11 @@ END=$(find JPG -name '*.JPG' -print| sed 's|^JPG/DSC_||g' | sed  's|\.JPG$||g' |
 
 echo "start = $START, end = $END"
 
-HIGH_RESOLUTION="6016x4000"
+# 4K resolution
+HIGH_RESOLUTION="3840x2160"
+
+
+# Much less.
 MEDIUM_RESOLUTION="1280x720"
 
 #Frames per second
