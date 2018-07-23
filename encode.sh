@@ -37,6 +37,23 @@ if  [ -z "$START" ] ; then
     echo "Could not find a start frame, assuming all frames are named according to the format $INPUTFORMAT"
 fi
 
+# Output pathnames
+HIGH_RES_OUTPUT=MPG/out_high_res.mpg
+MED_RES_OUTPUT=MPG/out_med_res.mpg
+
+# Deleting old outputs, if they exist
+
+if [ -f "$HIGH_RES_OUTPUT" ] ; then
+    echo "Deleting old high res output file $HIGH_RES_OUTPUT"
+    rm "$HIGH_RES_OUTPUT"
+fi
+
+if [ -f "$MED_RES_OUTPUT" ] ; then
+    echo "Deleting old high res output file $MED_RES_OUTPUT"
+    rm "$MED_RES_OUTPUT"
+fi
+
+
 echo "starting using input frame  = $START"
 
 # 4K resolution
@@ -50,7 +67,7 @@ FPS=16
 
 
 # First we make a medium res version
-ffmpeg -r $FPS -start_number $START -i $INPUTFORMAT -s $MEDIUM_RESOLUTION -vcodec libx264 MPG/out_med_res.mpg
+ffmpeg -r $FPS -start_number $START -i $INPUTFORMAT -s $MEDIUM_RESOLUTION -vcodec libx264 $MED_RES_OUTPUT
 
 # Then we make a maximum resolution version
-ffmpeg -r $FPS -start_number $START -i $INPUTFORMAT  -s $HIGH_RESOLUTION  -vcodec libx264 MPG/out_high_res.mpg
+ffmpeg -r $FPS -start_number $START -i $INPUTFORMAT  -s $HIGH_RESOLUTION  -vcodec libx264 $HIGH_RES_OUTPUT
