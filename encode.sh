@@ -15,14 +15,14 @@ if [ $# -ne 0 ]; then
     fi
 fi
 
-print "Assuming working directory to be $(PWD)"
+echo "Assuming working directory to be $(PWD)"
 
 if [ ! -d "JPG" ] ; then
     echo "Could not find any JPG (input) directory in the working directory, bailing out"
     exit 1
 fi
 
-if [ -d "MPG" ] ; then
+if [ ! -d "MPG" ] ; then
     echo "Could not find MPG (output) directory in the working directory, making one"
     mkdir MPG
 fi
@@ -34,7 +34,7 @@ INPUTFORMAT="JPG/DSC_%04d.JPG"
 START=$(find JPG -name '*.JPG' -print| sed 's|^JPG/DSC_||g' | sed  's|\.JPG$||g' | sort -n | head -n 1)
 
 if  [ -z "$START" ] ; then
-    echo "Could not find a start frame, assuming all frames are named according to the format $INPUTFORMAT
+    echo "Could not find a start frame, assuming all frames are named according to the format $INPUTFORMAT"
 fi
 
 echo "starting using input frame  = $START"
