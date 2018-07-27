@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# Copyright 2018  Bjørn Remseth.   This program is
+# free software licensed under the GNU GENERAL PUBLIC LICENSE
+# Version 3, 29 June 2007
+
+if [ -z $(which ffmpeg) ] ; then
+    echo "No ffmpeg in your path."
+    echo "Please take a look at https://www.ffmpeg.org/index.html#news, "
+    echo "Find a version of ffmpeg that can be run on your computer"
+    echo "install it and then put it in your path before trying to run"
+    echo "this script again."
+    exit 1
+fi
+
 # Determine the home directory, if none given assume that it's the current
 # working directory.   If not, then cd to it and make it the current working
 # directory
