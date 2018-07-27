@@ -3,10 +3,11 @@ Utility script for using ffmpeg to make timelapse videos of images captured by m
 
 To use it, do something line this:
 
-## Put ynour input data in a directory it can be reached
+## Put your input data in a target directory
 
-Make an empty directory and copy your jpg files there.  I typically copy
-them directly from the memory card I use in my dslr:
+Make an empty target directory and copy your jpg files there.  I typically copy
+them directly from the memory card I use in my dslr. In this example it's
+called "foo" but it can obviously be called anything.
 
     $mkdir -p foo/JPG
     $cp ls /Volumes/NIKON\ D3200/DCIM/100D3200/DSC_0*.JPG  foo/JPG
@@ -16,7 +17,7 @@ them directly from the memory card I use in my dslr:
 
     $ ~/git/timelapse-encoding/encode.sh foo
 
-# The output will be located in foo/MPEG directory
+# The output will be located in target's MPG directory
 
     $ls foo/MPG/
     out_high_res.mpg	out_med_res.mpg
