@@ -4,6 +4,10 @@
 # free software licensed under the GNU GENERAL PUBLIC LICENSE
 # Version 3, 29 June 2007
 
+
+# First determine if ffmpeg is installed.
+# not much use in continuing if it  isn't.  Give some
+# hints about how to install if not present.
 if [ -z $(which ffmpeg) ] ; then
     echo "No ffmpeg in your path."
     echo "Please take a look at https://www.ffmpeg.org/index.html#news, "
@@ -13,7 +17,8 @@ if [ -z $(which ffmpeg) ] ; then
     exit 1
 fi
 
-# Determine the home directory, if none given assume that it's the current
+
+# Determine the target directory, if none given assume that it's the current
 # working directory.   If not, then cd to it and make it the current working
 # directory
 
@@ -28,15 +33,15 @@ if [ $# -ne 0 ]; then
     fi
 fi
 
-echo "Assuming working directory to be $(PWD)"
+echo "Assuming target directory to be $(PWD)"
 
 if [ ! -d "JPG" ] ; then
-    echo "Could not find any JPG (input) directory in the working directory, bailing out"
+    echo "Could not find any JPG (input) directory in the target directory, bailing out"
     exit 1
 fi
 
 if [ ! -d "MPG" ] ; then
-    echo "Could not find MPG (output) directory in the working directory, making one"
+    echo "Could not find MPG (output) directory in the target directory, making one"
     mkdir MPG
 fi
 
