@@ -17,7 +17,7 @@ called "foo" but it can obviously be called anything.
 
     $ ~/git/timelapse-encoding/encode.sh foo
 
-# The output will be located in target's MPG directory
+## The output will be located in target's MPG directory
 
     $ls foo/MPG/
     out_high_res.mpg	out_med_res.mpg
